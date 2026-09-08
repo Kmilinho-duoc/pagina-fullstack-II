@@ -34,9 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     grid.innerHTML = '';
 
-    // Usamos el catálogo administrado (localStorage), así los precios
-    // y productos nuevos del panel de administrador se ven reflejados aquí.
-    const listaProductos = typeof obtenerProductosAdmin === 'function' ? obtenerProductosAdmin() : productos;
+    const listaProductos = productos;
 
     listaProductos.forEach(producto => {
         const col = document.createElement('div');
