@@ -9,9 +9,19 @@ function obtenerUsuariosAdmin() {
     if (!data) {
         data = [
             { run: '191100220', nombre: 'Admin', apellidos: 'Sistema', correo: 'admin@duoc.cl', fechaNacimiento: '1990-01-01', tipo: 'Administrador', region: 'Región Metropolitana de Santiago', comuna: 'Santiago', direccion: 'Av. Siempre Viva 123' },
-            { run: '112223339', nombre: 'Cliente', apellidos: 'Demo', correo: 'cliente@gmail.com', fechaNacimiento: '1995-05-05', tipo: 'Cliente', region: 'Región de Valparaíso', comuna: 'Viña del Mar', direccion: 'Calle Falsa 456' }
+            { run: '112223339', nombre: 'Cliente', apellidos: 'Demo', correo: 'cliente@gmail.com', fechaNacimiento: '1995-05-05', tipo: 'Cliente', region: 'Región Metropolitana de Santiago', comuna: 'Santiago', direccion: 'Calle Falsa 456' }
         ];
         localStorage.setItem('usuariosAdmin', JSON.stringify(data));
+    } else {
+        const clienteDemo = data.find(function(usuario) {
+            return usuario.correo === 'cliente@gmail.com';
+        });
+
+        if (clienteDemo && (clienteDemo.region !== 'Región Metropolitana de Santiago' || clienteDemo.comuna !== 'Santiago')) {
+            clienteDemo.region = 'Región Metropolitana de Santiago';
+            clienteDemo.comuna = 'Santiago';
+            localStorage.setItem('usuariosAdmin', JSON.stringify(data));
+        }
     }
     return data;
 }

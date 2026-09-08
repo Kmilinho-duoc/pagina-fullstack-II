@@ -33,7 +33,7 @@ function obtenerCategorias() {
     return [...new Set(base)];
 }
 
-/* ---------- Listado (productos.html) ---------- */
+/* ---------- Listado (productosAdmin.html) ---------- */
 function inicializarListadoProductos() {
     const tbody = document.getElementById('tabla-productos');
     if (!tbody) return;
@@ -209,7 +209,7 @@ function inicializarFormularioProducto() {
 
         guardarProductosAdmin(data);
         alert(idEditar ? 'Producto actualizado correctamente.' : 'Producto creado correctamente.');
-        window.location.href = 'productos.html';
+        window.location.href = 'productosAdmin.html';
     });
 }
 
