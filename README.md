@@ -37,7 +37,7 @@ Este proyecto fue desarrollado con fines **académicos**, como parte del aprendi
 
 El objetivo principal fue aplicar conocimientos de **HTML, CSS, JavaScript, testing y control de versiones**, desarrollando una aplicación web funcional y verificando su comportamiento mediante pruebas automatizadas.
 
-**autores**
+**Autores**
 
 Estudiantes del Instituto profesional Duoc UC — Ingeniería en Informática. 
 Como a la vez los autores somos los contribuyentes del proyecto, muchas gracias. 
