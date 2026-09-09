@@ -134,3 +134,24 @@ a.card-link, a.card-link:hover {
     margin-left: auto;
     margin-right: auto;
 }
+
+
+.video-section {
+    padding-bottom: 30px;
+}
+
+.video-container {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
