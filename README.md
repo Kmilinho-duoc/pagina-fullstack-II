@@ -37,11 +37,11 @@ Este proyecto fue desarrollado con fines **académicos**, como parte del aprendi
 
 El objetivo principal fue aplicar conocimientos de **HTML, CSS, JavaScript, testing y control de versiones**, desarrollando una aplicación web funcional y verificando su comportamiento mediante pruebas automatizadas.
 
-#¿Cómo Explorar La Página Web?
+## ¿Cómo Explorar La Página Web?
 * Opción 1 : Descargar el archivo ZIP en tu escritorio >> PaginaWebPasteleria >> pages >> index.html
 * Opcion 2: Clonar el repositorio en Visual Studio Code >> PaginaWebPasteleria >> (puedes explorar el código completo a tráves de las carpetas) >> index.html >> run >> open with Chrome ( o con el motor de búsqueda de tu preferencia), en nuestro caso nosotros lo abrimos con Apache.
   
-#¿Problemas Para Visualizar La Página Web?
+## ¿Problemas Para Visualizar La Página Web?
 * Solución 1 : Verificar que las carpetas se encuentren ordenadadas
 * Solución 2: Instala Node.js y ejecuta en la terminal de Visual Studio Code los script npm install y luego npm run dv 
 
