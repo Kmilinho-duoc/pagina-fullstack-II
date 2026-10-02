@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    // Usuarios de prueba para probar el sistema (tienda y panel de administración)
+    // Usuarios de prueba para probar el sistema
     const usuariosPrueba = [
         { correo: 'admin@duoc.cl', password: 'admin123', nombre: 'Admin Sistema', rol: 'administrador' },
         { correo: 'cliente@gmail.com', password: 'cliente123', nombre: 'Cliente Demo', rol: 'cliente' }
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let esValido = true;
 
-        
+        // Validar Correo
         const emailRegex = /@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
         if (emailInput.value.length === 0) {
             esValido = false;
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
             esValido = false;
             emailInput.classList.add('is-invalid');
             emailError.innerText = "El correo no puede exceder los 100 caracteres.";
-        } else if (!emailRegex.test(emailInput.value)) {
+        } else if (!emailRegex.test(emailInput.value.toLowerCase())) {
             esValido = false;
             emailInput.classList.add('is-invalid');
             emailError.innerText = "Solo se permiten correos @duoc.cl, @profesor.duoc.cl o @gmail.com.";
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
             emailInput.classList.remove('is-invalid');
         }
 
-        
+        // Validar Contraseña
         if (passwordInput.value.length === 0) {
             esValido = false;
             passwordInput.classList.add('is-invalid');
@@ -50,41 +50,51 @@ document.addEventListener('DOMContentLoaded', function() {
             passwordInput.classList.remove('is-invalid');
         }
 
-        
         form.classList.add('was-validated');
 
-        
         if (esValido) {
             form.classList.remove('was-validated');
 
-            // Además de las cuentas de prueba, revisamos los usuarios que
-            // se hayan registrado desde registro.html (guardados con contraseña).
-            const usuariosRegistrados = (JSON.parse(localStorage.getItem('usuariosAdmin')) || [])
-                .filter(u => u.password);
+            const correoIngresado = emailInput.value.trim().toLowerCase();
+            const passwordIngresada = passwordInput.value.trim();
 
-            const usuario = usuariosPrueba.find(u => u.correo === emailInput.value && u.password === passwordInput.value) ||
-                usuariosRegistrados.find(u => u.correo === emailInput.value && u.password === passwordInput.value);
+            // Cargar usuarios desde las posibles claves en localStorage ('usuarios' y 'usuariosAdmin')
+            const usuariosGuardados = JSON.parse(localStorage.getItem('usuarios')) || [];
+            const usuariosAdminGuardados = JSON.parse(localStorage.getItem('usuariosAdmin')) || [];
+            
+            const todosLosGuardados = [...usuariosGuardados, ...usuariosAdminGuardados];
+
+            // Buscar primero en los de prueba, luego en los guardados en localStorage
+            const usuario = usuariosPrueba.find(u => u.correo.toLowerCase() === correoIngresado && u.password === passwordIngresada) ||
+                todosLosGuardados.find(u => {
+                    const correoUser = (u.correo || u.email || '').toLowerCase();
+                    return correoUser === correoIngresado && u.password === passwordIngresada;
+                });
 
             if (!usuario) {
-                alert('Correo o contraseña incorrectos. Utiliza una de las cuentas de prueba indicadas en esta página.');
+                emailInput.classList.add('is-invalid');
+                passwordInput.classList.add('is-invalid');
+                alert('Correo o contraseña incorrectos.');
                 return;
             }
 
             const rol = (usuario.rol || usuario.tipo || 'cliente').toLowerCase();
 
+            // Guardar datos de sesión activa
             localStorage.setItem('sesionActual', JSON.stringify({
-                correo: usuario.correo,
-                nombre: usuario.nombre,
+                correo: usuario.correo || usuario.email,
+                nombre: usuario.nombre || 'Cliente',
                 rol: rol
             }));
 
-            // Solo el administrador entra al panel; cualquier otro caso es cliente.
+            // Redirección corregida según el rol
             if (rol === 'administrador') {
                 alert('¡Inicio de sesión exitoso! Ingresando al panel de administración.');
                 window.location.href = 'admin/home.html';
             } else {
                 alert('¡Inicio de sesión exitoso!');
-                window.location.href = '../index.html';
+                // Redirige al index.html en la misma carpeta que login.html
+                window.location.href = 'index.html';
             }
         }
     });
