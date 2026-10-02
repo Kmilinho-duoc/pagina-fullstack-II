@@ -1,0 +1,14 @@
+{
+  "name": "testing",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "jasmine pasteleria.spec.js"
+  },
+  "devDependencies": {
+    "jasmine": "^7.0.0",
+    "jsdom": "^29.1.1",
+    "karma": "^6.4.4",
+    "karma-chrome-launcher": "^3.2.0",
+    "karma-jasmine": "^5.1.0"
+  }
+}

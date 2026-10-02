@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Pruebas de Contacto - Jasmine</title>
+
+  <!-- Jasmine CSS & JS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/jasmine-html.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/boot0.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/5.1.0/boot1.js"></script>
+
+  <!-- Lógica de validación de Contacto -->
+  <script src="../Js/contacto.js"></script>
+
+  <!-- Archivo con los tests -->
+  <script src="pasteleria.spec.js"></script>
+</head>
+<body>
+  <!-- Contenedor copiados  contacto.html -->
+  <div style="display: none;">
+    <form id="formulario-contacto" novalidate>
+      <input type="text" id="nombre">
+      <div id="nombre-error"></div>
+
+      <input type="email" id="email">
+      <div id="email-error"></div>
+
+      <textarea id="comentario"></textarea>
+      <div id="comentario-error"></div>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+</body>
+</html>
