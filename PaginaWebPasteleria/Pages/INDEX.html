@@ -165,14 +165,14 @@
             event.preventDefault();
             const email = document.getElementById('newsletter-email');
             const mensaje = document.getElementById('newsletter-mensaje');
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            const emailRegex = /@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/;
 
             if (emailRegex.test(email.value)) {
                 mensaje.textContent = 'Correo ingresado: ' + email.value;
                 mensaje.className = 'd-block mt-2 text-success';
                 email.value = '';
             } else {
-                mensaje.textContent = 'Ingresa un correo válido.';
+                mensaje.textContent = 'Ingresa un correo válido (los correos validos terminan  en @duoc.cl, @profesor.duoc.cl o @gmail.com)';
                 mensaje.className = 'd-block mt-2 text-danger';
             }
         });

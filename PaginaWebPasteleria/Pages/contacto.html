@@ -10,100 +10,271 @@
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Pacifico&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Css/style.css">
 </head>
+
 <body>
 
     <header>
         <div class="sub-nav text-end pe-4 py-1">
-            <a href="login.html">Iniciar sesión</a> | <a href="registro.html">Registrar usuario</a>
+            <a href="login.html">Iniciar sesión</a> | 
+            <a href="registro.html">Registrar usuario</a>
         </div>
+
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand font-heading" href="index.html">🧁 Pastelería Mil Sabores</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMilSabores">.
+
+                <a class="navbar-brand font-heading" href="index.html">
+                    🧁 Pastelería Mil Sabores
+                </a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMilSabores">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarMilSabores">
+
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link" href="blogs.html">Blogs</a></li>
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="contacto.html">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="blogs.html">Blogs</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="contacto.html">
+                                Contacto
+                            </a>
+                        </li>
                     </ul>
+
                     <div class="d-flex">
                         <a href="carrito.html" class="btn btn-cart" id="carrito-btn">
                             <i class="bi bi-cart"></i> Carrito (0)
                         </a>
                     </div>
+
                 </div>
             </div>
         </nav>
     </header>
 
+
     <main class="container my-5">
+
         <div class="row">
+
             <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
-                
+
+                <!-- FORMULARIO DE CONTACTO -->
                 <div class="card p-4 shadow-sm border-0">
+
                     <div class="card-body">
-                        
+
                         <div class="text-center mb-4">
+
                             <div class="login-logo-placeholder mb-3">
                                 <i class="bi bi-envelope-heart-fill display-1" style="color: var(--color-acento-2);"></i>
                             </div>
+
                             <h2 class="font-heading">Contáctanos</h2>
-                            <p class="text-muted">FORMULARIO DE CONTACTOS</p>
+
+                            <p class="text-muted">
+                                FORMULARIO DE CONTACTO
+                            </p>
+
                         </div>
-                        
+
+
                         <form id="formulario-contacto" novalidate>
-                            
+
+                            <!-- NOMBRE -->
                             <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre Completo</label>
-                                <input type="text" class="form-control" id="nombre" required>
+
+                                <label for="nombre" class="form-label">
+                                    Nombre Y Apellido 
+                                </label>
+
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="nombre"
+                                    required
+                                >
+
                                 <div class="invalid-feedback" id="nombre-error">
                                     Por favor, ingresa tu nombre.
                                 </div>
+
                             </div>
 
+
+                            <!-- CORREO -->
                             <div class="mb-3">
-                                <label for="email" class="form-label">Correo</label>
-                                <input type="email" class="form-control" id="email">
+
+                                <label for="email" class="form-label">
+                                    Correo (opcional)
+                                </label>
+
+                                <input 
+                                    type="email" 
+                                    class="form-control" 
+                                    id="email"
+                                    placeholder="ejemplo@gmail.com"
+                                >
+
                                 <div class="invalid-feedback" id="email-error">
                                     Por favor, ingresa un correo válido.
                                 </div>
+
                             </div>
 
+
+                            <!-- TELEFONO -->
                             <div class="mb-3">
-                                <label for="comentario" class="form-label">Comentario</label>
-                                <textarea class="form-control" id="comentario" rows="5" required></textarea>
+
+                                <label for="numerot" class="form-label">
+                                    Número Telefónico (opcional)
+                                </label>
+
+                                <input 
+                                    type="text" 
+                                    class="form-control" 
+                                    id="numerot"
+                                    placeholder="+569 XXXX XXXX "
+                                >
+
+                                <div class="invalid-feedback" id="numerot-error">
+                                    Por favor, ingresa un número telefónico chileno válido.
+                                </div>
+
+                            </div>
+
+
+                            <!-- MENSAJE CORREO O TELEFONO -->
+                            <div class="alert alert-info" role="alert">
+                                <i class="bi bi-info-circle"></i>
+                                <strong>Importante:</strong> 
+                                Debes proporcionar al menos uno de los dos medios de contacto, ya sea correo electrónico y/o número teléfonico .
+                            </div>
+
+
+                            <!-- COMENTARIO -->
+                            <div class="mb-3">
+
+                                <label for="comentario" class="form-label">
+                                    Comentario
+                                </label>
+
+                                <textarea 
+                                    class="form-control" 
+                                    id="comentario" 
+                                    rows="5"
+                                    required
+                                ></textarea>
+
                                 <div class="invalid-feedback" id="comentario-error">
                                     Por favor, ingresa tu comentario.
                                 </div>
+
                             </div>
 
+
+                            <!-- BOTON -->
                             <div class="d-grid mt-4">
-                                <button type="submit" class="btn btn-primary btn-lg">ENVIAR MENSAJE</button>
+
+                                <button 
+                                    type="submit" 
+                                    class="btn btn-primary btn-lg"
+                                >
+                                    ENVIAR MENSAJE
+                                </button>
+
                             </div>
 
                         </form>
+
                     </div>
                 </div>
+
+
+                <!-- TARJETA DE CONTACTO DIRECTO -->
+                <div class="card p-4 shadow-sm border-0 mt-4">
+
+                    <div class="card-body text-center">
+
+                        <div class="mb-3">
+                            <i class="bi bi-telephone-fill display-5" style="color: var(--color-acento-2);"></i>
+                        </div>
+
+                        <h3 class="font-heading">
+                            ¿Necesitas contactarnos directamente?
+                        </h3>
+
+                        <p class="text-muted">
+                            Si gustas, también puedes contactarte con nosotros
+                            directamente a través de nuestros números telefónicos.
+                        </p>
+
+
+                        <div class="mt-4">
+
+                            <p class="mb-2">
+                                <i class="bi bi-telephone-fill"></i>
+                                <strong>Teléfono:</strong>
+                                +569 1234 5678
+                            </p>
+
+                            <p class="mb-2">
+                                <i class="bi bi-whatsapp"></i>
+                                <strong>WhatsApp:</strong>
+                                +569 8765 4321
+                            </p>
+
+                        </div>
+
+                        <p class="text-muted mt-3 mb-0">
+                            Estamos disponibles para responder tus consultas.
+                        </p>
+
+                    </div>
+
+                </div>
+
             </div>
+
         </div>
+
     </main>
 
+
     <footer class="footer-mil-sabores mt-5 py-5">
+
         <div class="container">
+
             <hr class="my-4">
+
             <div class="text-center">
-                <small>&copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados</small>
+
+                <small>
+                    &copy; 2026 Pastelería Mil Sabores. Todos los derechos reservados
+                </small>
+
             </div>
+
         </div>
+
     </footer>
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../Js/inventario.js"></script>
-    <script src="../Js/productos.js"></script>
-    <script src="../Js/contacto.js"></script>
-    <script src="../Js/session.js"></script>
-</body>
-</html>
+
+    <script src="../Js/invent
